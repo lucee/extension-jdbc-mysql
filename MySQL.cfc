@@ -34,7 +34,7 @@
 	
 	<cfset this.value.host="localhost">
 	<cfset this.value.port=3306>
-	<cfset this.className="org.gjt.mm.mysql.Driver">
+	<cfset this.className="com.mysql.cj.jdbc.Driver">
 	<cfset this.dsn="jdbc:mysql://{host}:{port}/{database}">
     
     
