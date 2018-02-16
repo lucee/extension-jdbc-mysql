@@ -46,12 +46,17 @@
     
 	<cffunction name="getName" returntype="string" output="no"
 		hint="returns display name of the driver">
-		<cfreturn "MySQL">
+		<cfreturn "{label}">
+	</cffunction>
+
+	<cffunction name="getId" returntype="string" output="no"
+		hint="returns the ID of the driver">
+		<cfreturn "{id}">
 	</cffunction>
 	
 	<cffunction name="getDescription" returntype="string" output="no"
 		hint="returns description for the driver">
-		<cfreturn "For MYSQL Databases">
+		<cfreturn {description}>
 	</cffunction>
 	
 	<cffunction name="getFields" returntype="array" output="no"
