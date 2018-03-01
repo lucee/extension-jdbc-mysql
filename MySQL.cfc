@@ -48,6 +48,11 @@
 		hint="returns display name of the driver">
 		<cfreturn "MySQL">
 	</cffunction>
+
+	<cffunction name="getId" returntype="string" output="no"
+		hint="returns the ID of the driver">
+		<cfreturn "{id}">
+	</cffunction>
 	
 	<cffunction name="getDescription" returntype="string" output="no"
 		hint="returns description for the driver">
