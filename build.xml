@@ -248,7 +248,13 @@ jdbc: "[{'label':'${label}','id':'${jdbcid}','class':'${className}','bundleName'
     <loadfile property="content1" srcFile="${distl}/context/admin/dbdriver/${cfcName}" />
     <replace haystack="${content1}" needle="{class-name}" repl="${className}" property="content2"/>
     <replace haystack="${content2}" needle="{bundle-name}" repl="${symbolicName}" property="content3"/>
-    <echo message="${content3}" file="${distl}/context/admin/dbdriver/${cfcName}"/>
+    <replace haystack="${content3}" needle="{id}" repl="${jdbcid}" property="content4"/>
+    <replace haystack="${content4}" needle="{label}" repl="${label}" property="content5"/>
+    <replace haystack="${content5}" needle="{description}" repl="${description}" property="content6"/>
+    <echo message="${content6}" file="${distl}/context/admin/dbdriver/${cfcName}"/>
+
+
+
 
 
     <!-- copy optional logo -->
