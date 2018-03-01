@@ -237,7 +237,7 @@ description: "${desc}"
 category: "Datasource"
 lucee-core-version: "5.0.0.019"
 start-bundles: false
-jdbc: "[{'label':'${label}','class':'${className}','bundleName':'${symbolicName}','bundleVersion':'${symbolicVersion}'}]"
+jdbc: "[{'label':'${label}','id':'${jdbcid}','class':'${className}','bundleName':'${symbolicName}','bundleVersion':'${symbolicVersion}'}]"
 </echo>
 
     <!-- copy the jars necessary -->
