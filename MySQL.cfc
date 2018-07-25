@@ -1,6 +1,6 @@
-<cfcomponent extends="types.Driver" output="no" implements="types.IDatasource">
-	
-	<cfset fields=array(
+component extends="types.Driver" output="no" implements="types.IDatasource" {
+
+	fields=array(
 		field("Use Unicode","useUnicode","true,false",true,"Should the driver use Unicode character encodings when handling strings? Should only be used when the driver can't determine the character set mapping, or you are trying to 'force' the driver to use a character set that MySQL either doesn't natively support (such as UTF-8)","radio"),
 		field("Charset","characterEncoding","UTF-8",false,"If 'Use Unicode' is set to true, what character encoding should the driver use when dealing with strings?"),
 		//field("cache ResultSetMetadata","cacheResultSetMetadata","true,false",false,"Should the driver cache ResultSetMetaData for Statements and PreparedStatements.","radio"),
@@ -21,48 +21,60 @@
 		 field('Legacy Datetime Code','useLegacyDatetimeCode','true,false',true,
 		 	'Use code for DATE/TIME/DATETIME/TIMESTAMP handling in result sets and statements that consistently handles timezone conversions from client to server and back again, or use the legacy code for these datatypes that has been in the driver for backwards-compatibility?'
 		 		,"radio",1)
-		 //field('Transformed Bit Is Boolean','transformedBitIsBoolean','true,false',false,'',"radio")
-		
-		
-		
-	)>
-	
-	
-	
-	
-	<cfset this.type.port=this.TYPE_FREE>
-	
-	<cfset this.value.host="localhost">
-	<cfset this.value.port=3306>
-	<cfset this.className="{class-name}">
-	<cfset this.bundleName="{bundle-name}">
-	<cfset this.dsn="jdbc:mysql://{host}:{port}/{database}">
-    
-    
-	<cffunction name="onBeforeUpdate" returntype="void" output="no">
-		<cfset custom_useUnicode=true>
-	</cffunction>
-    
-    
-	<cffunction name="getName" returntype="string" output="no"
-		hint="returns display name of the driver">
-		<cfreturn "{label}">
-	</cffunction>
+	);
 
-	<cffunction name="getId" returntype="string" output="no"
-		hint="returns the ID of the driver">
-		<cfreturn "{id}">
-	</cffunction>
-	
-	<cffunction name="getDescription" returntype="string" output="no"
-		hint="returns description for the driver">
-		<cfreturn {description}>
-	</cffunction>
-	
-	<cffunction name="getFields" returntype="array" output="no"
-		hint="returns array of fields">
-		<cfreturn fields>
-	</cffunction>
 
+	this.type.port=this.TYPE_FREE;
 	
-</cfcomponent>
+	this.value.host="localhost";
+	this.value.port=3306;
+	this.className="com.mysql.cj.jdbc.Driver";
+	this.bundleName="com.mysql.cj";
+	this.dsn="jdbc:mysql://{host}:{port}/{database}";
+
+	public void function onBeforeUpdate() {
+		custom_useUnicode=true;
+		
+		// Timezone
+		if(!isNull(form.timezone) && !isEmpty(form.timezone)) local.tz=form.timezone;
+		else local.tz=toString(getTimezone());
+		form['custom_serverTimezone']=tz;
+
+	}
+
+	/**
+	* returns display name of the driver
+	*/
+	public string function getName() {
+		return "{label}";
+	}
+
+	/**
+	* returns the id of the driver
+	*/
+	public string function getId() {
+		return "{id}";
+	}
+
+	/**
+	* returns the description of the driver
+	*/
+	public string function getDescription() {
+		return {description};
+	}
+
+	/**
+	* returns array of fields
+	*/
+	public array function getFields() {
+		return fields;
+	}
+
+	public boolean function literalTimestampWithTSOffset() {
+		return false;
+	}
+
+	public boolean function alwaysSetTimeout() {
+		return true;
+	}
+}
