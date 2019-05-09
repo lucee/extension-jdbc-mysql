@@ -28,9 +28,9 @@ component extends="types.Driver" output="no" implements="types.IDatasource" {
 	
 	this.value.host="localhost";
 	this.value.port=3306;
-	this.className="com.mysql.cj.jdbc.Driver";
-	this.bundleName="com.mysql.cj";
-	this.dsn="jdbc:mysql://{host}:{port}/{database}";
+	this.className="{class-name}";
+	this.bundleName="{bundle-name}";
+	this.dsn="{connString}";
 
 	public void function onBeforeUpdate() {
 		custom_useUnicode=true;

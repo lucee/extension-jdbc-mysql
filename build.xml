@@ -214,6 +214,7 @@
     <first text="${className1}" property="className2" default="${defaultClassName}"/>
     <trim text="${className2}" property="className3"/>
     <unwrap text="${className3}" property="className"/>
+    <unwrap text="${connstr}" property="_connstr"/>
     
     <echo message="Driver class name:${className}"/>
 
@@ -237,7 +238,7 @@ description: "${desc}"
 category: "Datasource"
 lucee-core-version: "5.0.0.019"
 start-bundles: false
-jdbc: "[{'label':'${label}','id':'${jdbcid}','class':'${className}','bundleName':'${symbolicName}','bundleVersion':'${symbolicVersion}'}]"
+jdbc: "[{'label':'${label}','id':'${jdbcid}','connectionString':'${_connstr}','class':'${className}','bundleName':'${symbolicName}','bundleVersion':'${symbolicVersion}'}]"
 </echo>
 
     <!-- copy the jars necessary -->
@@ -251,7 +252,8 @@ jdbc: "[{'label':'${label}','id':'${jdbcid}','class':'${className}','bundleName'
     <replace haystack="${content3}" needle="{id}" repl="${jdbcid}" property="content4"/>
     <replace haystack="${content4}" needle="{label}" repl="${label}" property="content5"/>
     <replace haystack="${content5}" needle="{description}" repl="${description}" property="content6"/>
-    <echo message="${content6}" file="${distl}/context/admin/dbdriver/${cfcName}"/>
+    <replace haystack="${content6}" needle="{connString}" repl="${_connstr}" property="content7"/>
+    <echo message="${content7}" file="${distl}/context/admin/dbdriver/${cfcName}"/>
 
     <!-- copy optional logo -->
     <copy todir="${distl}/META-INF">
