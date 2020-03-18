@@ -35,7 +35,15 @@ component extends="types.Driver" output="no" implements="types.IDatasource" {
 			,"radio"),
 		field('Legacy Datetime Code','useLegacyDatetimeCode','true,false',false,
 		 	'Use code for DATE/TIME/DATETIME/TIMESTAMP handling in result sets and statements that consistently handles timezone conversions from client to server and back again, or use the legacy code for these datatypes that has been in the driver for backwards-compatibility?'
+		 	,"radio"),
+		field('Auto Reconnect','autoReconnect','true,false',false,
+		 	'Should the driver try to re-establish stale and/or dead connections? If enabled the driver will throw an exception for a queries issued on a stale or dead connection, which belong to the current transaction, but will attempt reconnect before the next query issued on the connection in a new transaction. The use of this feature is not recommended, because it has side effects related to session state and data consistency when applications don''t handle SQLExceptions properly, and is only designed to be used when you are unable to configure your application to handle SQLExceptions resulting from dead and stale connections properly. Alternatively, as a last option, investigate setting the MySQL server variable "wait_timeout" to a high value, rather than the default of 8 hours.'
+		 	,"radio",2),
+		field('Max Reconnects','maxReconnects','3,5,8,12,15',3,
+		 	'Maximum number of reconnects to attempt if autoReconnect is true.'
 		 	,"radio")
+
+
 
 
 	);
