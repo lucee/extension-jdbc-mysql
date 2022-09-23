@@ -18,7 +18,6 @@ component extends="types.Driver" output="no" implements="types.IDatasource" {
 		field('Zero DateTime behavior','zeroDateTimeBehavior','EXCEPTION,ROUND,CONVERT_TO_NULL',false,
 			'What should happen when the driver encounters DATETIME values that are composed entirely of zeroes (used by MySQL to represent invalid dates)? Valid values are "exception", "round" and "convert_to_null"'
 			,"radio"),
-		
 		field('SSL','useSSL','true,false',false,
 			'Use SSL for connectiong the database.'
 			,"radio"),
