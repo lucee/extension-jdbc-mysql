@@ -10,7 +10,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      luceeVersionQuery: 6.0/all/light
+      luceeVersionQuery: 6/all/light
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 11
