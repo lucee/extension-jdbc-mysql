@@ -61,6 +61,7 @@ jobs:
         luceeVersion: ${{ env.luceeVersion }}
         luceeVersionQuery: ${{ env.luceeVersionQuery }}
         extensionDir: ${{ github.workspace }}/dist
+        extensions: CED6227E-0F49-6367-A68D21AACA6B07E8 # workaround for LDEV-5658
       env:
         testLabels: mysql
         MYSQL_SERVER: localhost
