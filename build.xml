@@ -232,7 +232,7 @@ jdbc: "[{'label':'${label}','id':'${jdbcid}','connectionString':'${_connstr}','c
     <replace haystack="${content2}" needle="{bundle-name}" repl="${symbolicName}" property="content3"/>
     <replace haystack="${content3}" needle="{id}" repl="${jdbcid}" property="content4"/>
     <replace haystack="${content4}" needle="{label}" repl="${label}" property="content5"/>
-    <replace haystack="${content5}" needle="{description}" repl="${description}" property="content6"/>
+    <replace haystack="${content5}" needle="{description}" repl="${desc}" property="content6"/>
     <replace haystack="${content6}" needle="{connString}" repl="${_connstr}" property="content7"/>
     <echo message="${content7}" file="${distl}/context/admin/dbdriver/${cfcName}"/>
 

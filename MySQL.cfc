@@ -81,7 +81,7 @@ component extends="types.Driver" output="no" implements="types.IDatasource" {
 	* returns the description of the driver
 	*/
 	public string function getDescription() {
-		return {description};
+		return "{description}";
 	}
 
 	/**
