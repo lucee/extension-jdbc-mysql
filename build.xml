@@ -3,12 +3,9 @@
 	<description>
         Building Datasource Extension
     </description>
-  <!--
-  <property name="label" value="Microsoft SQL Server (Vendor Microsoft)"/>
-  <property name="id" value="7E673D15-D87C-41A6-8B5F1956528C605F"/>
-  -->
+
   <property name="temp" location="temp"/>
-  <property name="dist"  location="dist"/>
+  <property name="dist"  location="target"/>
 
   <scriptdef name="trim" language="javascript">
      <attribute name="text" />
@@ -19,7 +16,6 @@
      ]]>
   </scriptdef>
 
-  
   <scriptdef name="replace" language="javascript">
      <attribute name="haystack" />
      <attribute name="needle" />
@@ -156,16 +152,6 @@
     <property name="jar" refid="path.jar"/>
     <getNameFrom path="${jar}" property="jarName"/>
 
-    <!-- logo
-    
-    <path id="path.logo">
-      <fileset dir="${dir}" casesensitive="yes">
-        <include name="*.png"/>
-      </fileset>
-    </path>
-    <property name="logo" refid="path.logo"/> -->
-
-
 
     <!-- driver (cfc) -->
     <path id="path.cfc">
@@ -262,10 +248,8 @@ jdbc: "[{'label':'${label}','id':'${jdbcid}','connectionString':'${_connstr}','c
       </fileset>
     </copy>
 
-    
-
     <!-- Zip everything  -->
-     <zip destfile="${dist}/${manifest.Bundle-SymbolicName}-${manifest.Bundle-Version}.lex">
+     <zip destfile="${dist}/${filename}-${manifest.Bundle-Version}.lex">
         <zipfileset dir="${distl}"/>
     </zip>    
   </target>
