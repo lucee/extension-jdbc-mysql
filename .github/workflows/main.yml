@@ -38,7 +38,6 @@ jobs:
           key: lucee-downloads
 
       - name: Import GPG key
-        if: ${{ secrets.GPG_PRIVATE_KEY }}
         run: |
           echo "$GPG_PRIVATE_KEY" | base64 --decode | gpg --batch --import
         env:
