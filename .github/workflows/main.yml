@@ -139,7 +139,6 @@ jobs:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
       - name: Build and Deploy with Maven
-        if: ${{ secrets.MAVEN_USERNAME && secrets.MAVEN_PASSWORD }}
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
