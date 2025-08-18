@@ -15,6 +15,8 @@
         <id>7E673D15-D87C-41A6-8B5F1956528C605F</id>
         <luceeCoreVersion>5.0.0.0</luceeCoreVersion>
         <releaseType>server</releaseType>
+        <connstr>jdbc:mysql://{host}:{port}/{database}</connstr>
+        <jdbcid>mysql</jdbcid>
         <label>MySQL JDBC Driver</label>
         <release.url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</release.url>
         <snapshot.url>https://oss.sonatype.org/content/repositories/snapshots/</snapshot.url>
@@ -169,6 +171,8 @@
                                     <property name="label" value="${label}"/>
                                     <property name="description" value="${project.description}"/>
                                     <property name="filename" value="${project.artifactId}"/>
+                                    <property name="jdbcid" value="${jdbcid}"/>
+                                    <property name="connstr" value="${connstr}"/>
                                 </ant>
                                 
                                 <!-- Clean up the copied MySQL JAR after ant build -->

@@ -158,19 +158,19 @@
     <getNameFrom path="${cfc}" property="cfcName"/>
 
 
-    <property file="./build.properties"/>
     <unwrap text="${id}" property="id"/>
     <unwrap text="${label}" property="label"/>
     <unwrap text="${description}" property="desc"/>
 
+    <echo message="==================="/>
     <echo message="${id}"/>
     <echo message="${label}"/>
     <echo message="${desc}"/>
     <echo message="${jar}"/>
     <echo message="${cfc}"/>
     <echo message="${cfcName}"/>
-    <echo message="${dir}"/>
-    <echo message="${prop}"/>
+    <echo message="${connstr}"/>
+    <echo message="${jdbcid}"/>
 
 
     <!-- Read mf entries -->
