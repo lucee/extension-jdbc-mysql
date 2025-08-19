@@ -223,7 +223,7 @@ jdbc: "[{'label':'${label}','id':'${jdbcid}','connectionString':'${_connstr}','c
 </echo>
 
     <!-- copy the jars necessary -->
-    <copy file="${jar}" tofile="${distl}/jars/${jarName}"/>
+    <copy file="${jar}" tofile="${distl}/jars/${symbolicName}-${symbolicVersion}.jar"/>
     
     <!-- copy the cfcs necessary -->
     <copy file="${cfc}" tofile="${distl}/context/admin/dbdriver/${cfcName}"/>
