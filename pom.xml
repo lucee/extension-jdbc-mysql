@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://www.w3.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.lucee</groupId>
-    <artifactId>mysql-jdbc</artifactId>
+    <artifactId>mysql-jdbc-extension</artifactId>
     <version>9.4.0</version>
     <packaging>pom</packaging>
     <name>MySQL JDBC</name>
