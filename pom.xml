@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.lucee</groupId>
     <artifactId>mysql-jdbc-extension</artifactId>
-    <version>8.4.0</version>
+    <version>8.3.0</version>
     <packaging>pom</packaging>
     <name>MySQL JDBC</name>
 
