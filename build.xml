@@ -213,6 +213,8 @@
     <echo file="${distl}/META-INF/MANIFEST.MF">Manifest-Version: 1.0
 Built-Date: ${NOW}
 version: "${symbolicVersion}"
+groupId: "${groupId}"
+artifactId: "${artifactId}"
 id: "${id}"
 name: "${label}"
 description: "${desc}"
