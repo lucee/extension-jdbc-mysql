@@ -1,4 +1,4 @@
-component extends="org.lucee.cfml.test.LuceeTestCase" labels="mysql" {
+component extends="org.lucee.cfml.test.LuceeTestCase" labels="mysqlx" {
     /*
 
     the lucee test suite runs without a http server, so the mysql stuff can't be unit tested

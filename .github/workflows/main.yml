@@ -102,7 +102,7 @@ jobs:
           extensionDir: ${{ github.workspace }}/target
           # extensions: 8D7FB0DF-08BB-1589-FE3975678F07DB17,37C61C0A-5D7E-4256-8572639BE0CF5838,FAD1E8CB-4F45-4184-86359145767C29DE
         env:
-          testLabels: mysql
+          testLabels: mysqlx
           MYSQL_SERVER: localhost
           MYSQL_USERNAME: lucee
           MYSQL_PASSWORD: lucee
