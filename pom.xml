@@ -4,15 +4,18 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.lucee</groupId>
     <artifactId>mysql-jdbc-extension</artifactId>
-    <version>9.7.0</version>
+    <version>9.7.1</version>
     <packaging>pom</packaging>
     <name>MySQL JDBC</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <id>7E673D15-D87C-41A6-8B5F1956528C605F</id>
+        <image>https://raw.githubusercontent.com/lucee/extension-jdbc-mysql/master/source/images/logo.png</image>
+        <buildDate>${maven.build.timestamp}</buildDate>
         <luceeCoreVersion>5.0.0.0</luceeCoreVersion>
         <releaseType>server</releaseType>
         <connstr>jdbc:mysql://{host}:{port}/{database}</connstr>
@@ -116,8 +119,33 @@
 
     <build>
         <plugins>
-
             <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <flattenMode>bom</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>3.2.0</version>
