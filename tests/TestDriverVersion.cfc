@@ -1,7 +1,7 @@
 component extends="org.lucee.cfml.test.LuceeTestCase" labels="mysqlx" {
 
 	// keep in sync with pom.xml mvnVersion (major.minor.patch prefix)
-	variables.mavenDriverVersionPrefix = "9.7.0";
+	variables.mavenDriverVersionPrefix = "26.7.0";
 
 	function isNotSupported() {
 		return isEmpty( server.getDatasource( "mysql" ) );

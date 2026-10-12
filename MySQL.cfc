@@ -51,6 +51,7 @@ component extends="types.Driver" output="no" implements="types.IDatasource" {
 	this.value.port=3306;
 	this.className="{class-name}";
 	this.bundleName="{bundle-name}";
+	this.maven="{maven}";
 	this.dsn="{connString}";
 
 	public void function onBeforeUpdate() {

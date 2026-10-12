@@ -134,7 +134,8 @@ jdbc: "[{'id':'${jdbcid}','connectionString':'${_connstr}','label':'${label}','c
         <replace haystack="${content4}" needle="{label}" repl="${label}" property="content5"/>
         <replace haystack="${content5}" needle="{description}" repl="${desc}" property="content6"/>
         <replace haystack="${content6}" needle="{connString}" repl="${_connstr}" property="content7"/>
-        <echo message="${content7}" file="${dist}/extension/context/admin/dbdriver/${cfcName}"/>
+        <replace haystack="${content7}" needle="{maven}" repl="${mvnGroupId}:${mvnArtifactId}" property="content8"/>
+        <echo message="${content8}" file="${dist}/extension/context/admin/dbdriver/${cfcName}"/>
 
         <copy todir="${dist}/extension/META-INF">
             <fileset dir=".">
