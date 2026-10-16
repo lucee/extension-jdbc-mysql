@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.lucee</groupId>
     <artifactId>mysql-jdbc-extension</artifactId>
-    <version>26.7.0</version>
+    <version>26.7.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>MySQL JDBC</name>
 
@@ -23,10 +23,12 @@
         <releaseType>server</releaseType>
         <driverClass>com.mysql.cj.jdbc.Driver</driverClass>
         <bundleName>com.mysql.cj</bundleName>
-        <bundleVersion>${project.version}</bundleVersion>
+        <!-- mysql-connector-j version; the extension version is <driverVersion>.N (26.7.0.N) -->
+        <driverVersion>26.7.0</driverVersion>
+        <bundleVersion>${driverVersion}</bundleVersion>
         <mvnGroupId>com.mysql</mvnGroupId>
         <mvnArtifactId>mysql-connector-j</mvnArtifactId>
-        <mvnVersion>${project.version}</mvnVersion>
+        <mvnVersion>${driverVersion}</mvnVersion>
         <release.url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</release.url>
         <snapshot.url>https://oss.sonatype.org/content/repositories/snapshots/</snapshot.url>
     </properties>
