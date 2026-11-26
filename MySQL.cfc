@@ -97,6 +97,6 @@ component extends="types.Driver" output="no" implements="types.IDatasource" {
 	}
 
 	public boolean function alwaysSetTimeout() {
-		return true;
+		return false;
 	}
 }
